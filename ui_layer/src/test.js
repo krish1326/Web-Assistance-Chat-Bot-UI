@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import CustomComponent from './custom_Component';
+import ReactDOM from 'react-dom';
 
 const config = {
     width: "300px",
@@ -29,6 +30,7 @@ class Test extends React.Component {
         }]
     }
     createStepsForFAQ(faq) {
+        console.log(faq);
         let return_value = {
             questions: [],
             answers: []
@@ -71,13 +73,13 @@ class Test extends React.Component {
     steps = [
         {
             id: "Greet",
-            message: "Hello, Welcome to our terminal",
+            message: "bạn khỏe không",// "Hello, Welcome to our terminal",//
             trigger: "Ask Name"
         },
 
         {
             id: "Ask Name",
-            message: "where do you want me to take?",
+            message: "bạn muốn tôi đưa đi đâu",
             trigger: "user Input"
         },
         {
@@ -353,12 +355,44 @@ class Test extends React.Component {
         this.chatbotRef = React.createRef();
     }
     componentDidUpdate(prevProps) {
-        if (this.props.languageId != prevProps.languageId && prevProps.languageId != null) {
+        if (this.props.FAQ != prevProps.FAQ && prevProps.FAQ != null) {
             let steps = [...this.state.steps];
             for (let step of steps) {
                 if (step.id == "FAQ Options") {
-                    step.options = [...this.createStepsForFAQ(this.props.FAQ)];
+                    step.options = [...this.createStepsForFAQ(this.props.FAQ)['questions']];
+
+                    let parent = document.getElementById('bot-custom');
+                    while (parent.firstChild) {
+                        parent.removeChild(parent.firstChild);
+                    }
+                    // let Elem = React.createElement("ChatBot", {
+                    //     steps: steps,
+                    //     ref: this.chatbotRef,
+                    //     handleEnd: this.step,
+                    //     recognitionEnable: true,
+                    //     speechSynthesis: { enable: true, lang: 'en' },
+                    //     floating: true,
+                    //     handleInput: this.step
+                    // })
+                    // ReactDOM.unmountComponentAtNode(parent);
+                    ReactDOM.render(<ChatBot
+                        ref={this.chatbotRef}
+                        steps={steps} {...config} handleEnd={this.step}
+                        recognitionEnable={true}
+                        speechSynthesis={{ enable: true, lang: 'vi' }}
+                        floating={true}
+                        handleInput={this.step} />, parent);
+                    // let elem = document.getElementsByTagName('ChatBot');
+                    // console.log(elem);
+
+                    // Array.from(elem).forEach(el => el.remove());
+
+                    // let new_elem = document.createElement('ChatBot');
+                    // new_elem.setAttribute('steps', steps);
+                    // new_elem.setAttribute('recognitionEnable', true);
+                    // parent.appendChild(new_elem);
                     this.setState({ steps: steps });
+
                     break;
                 }
 
@@ -389,9 +423,8 @@ class Test extends React.Component {
                 ref={this.chatbotRef}
                 steps={this.state.steps} {...config} handleEnd={this.step}
                 recognitionEnable={true}
-                speechSynthesis={{ enable: true, lang: 'en' }}
+                speechSynthesis={{ enable: true, lang: 'vi' }}
                 floating={true}
-
                 handleInput={this.step} />
         </div>)
     }

@@ -141,6 +141,7 @@ class App extends React.Component {
     let currentId = faq_language_id ? faq_language_id : this.state.currentLanguageId;
     Axios.get('http://localhost:8000/get_faq?language=' + currentId).then(data => {
       this.setState({ FAQ: [].concat(...data.data['FAQ']) }, () => {
+        console.log(this.state.FAQ)
         if (faq_language_id)
           this.setState({ currentLanguageId: faq_language_id })
       })
@@ -177,7 +178,8 @@ class App extends React.Component {
           callback={this.test}
           FAQ={this.state.FAQ}
           handleDocumentUpload={this.handleDocumentUpload}
-          languageId={this.state.currentLanguageId} />}
+          languageId={this.state.currentLanguageId}
+          setSize={this.callbacks} />}
         <img src={this.state.image} alt="" id="image"
           style={{
             height: "100vh",
