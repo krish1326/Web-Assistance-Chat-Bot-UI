@@ -1,0 +1,17 @@
+.overlay_strip_styles {
+  z-index: 10000;
+  background: cadetblue;
+  opacity: 0.85;
+  height: 200px;
+  width: 50vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overlay_text_styles {
+  display: block;
+  margin-top: 85px;
+  font-size: 20px;
+  color: darkred;
+}

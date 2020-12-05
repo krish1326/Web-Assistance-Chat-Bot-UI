@@ -8,19 +8,18 @@
 }
 
 #bot {
-  position: fixed;
-  bottom: 20px;
-  right: 25px;
-
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: brown;
   display: inline-block;
-  color: white;
   text-align: center;
-  font-size: 42px;
+  font-size: 36px;
   z-index: 999;
+  vertical-align: middle;
+  margin-top: 5px;
+  display: inline-block;
+  margin-left: 80px;
 }
 #bot:hover {
   cursor: pointer;
@@ -39,7 +38,7 @@
   border: 2px solid #6e48aa;
 }
 #provide-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -48,7 +47,7 @@
 }
 #chat-text {
   text-indent: 10px;
-  width: 61%;
+  width: 70%;
   height: 35px;
   border: none;
   padding: 0;
@@ -85,7 +84,7 @@
 }
 
 .chat-icon {
-  width: 25px;
+  height: 30px;
   float: right;
   margin-right: 10px;
   margin-top: 24px;
@@ -162,4 +161,42 @@
 }
 .select-chat-language {
   width: 21%;
+}
+.unable_to_understand_header_styles {
+  font-size: 14px;
+  background: white;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+.faq-message {
+  margin: 10px;
+  background: white;
+  width: 90%;
+  height: auto;
+  padding: 9px;
+  border-radius: 1px 15px;
+  margin-top: 12px;
+  text-align: left;
+  font-family: monospace;
+  font-size: 16px;
+  overflow-wrap: break-word;
+}
+.image_upload_button_styles {
+  height: 30px;
+  width: auto;
+  /* margin: 5px; */
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.bot-icon-styles {
+  height: auto;
+  width: 122px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
 }

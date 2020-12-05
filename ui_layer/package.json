@@ -10,8 +10,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "react-simple-chatbot": "^0.6.1",
-    "recorderjs": "^1.0.1",
+    "react-speech-recognition": "^3.3.0",
     "styled-components": "^5.2.0"
   },
   "scripts": {

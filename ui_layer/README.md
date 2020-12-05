@@ -1,4 +1,4 @@
-Instructions to run the project:
+Instructionto run the project:
 
 1.In Root directory of project, Install node Modules in terminal(Command Prompt):
 
